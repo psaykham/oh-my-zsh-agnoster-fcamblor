@@ -189,11 +189,6 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
 }
 
-prompt_next_line() {
-  prompt_segment default yellow "%c>"
-  echo -n "%{%f%}"	
-}
-
 function vi_mode_prompt_info() {
   echo "${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}" 
 }
@@ -209,5 +204,4 @@ build_prompt() {
   prompt_end
 }
 
-PROMPT='%{%f%b%k%}$(build_prompt)
-$(prompt_next_line) '
+PROMPT='%{%f%b%k%}$(build_prompt) '
